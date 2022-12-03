@@ -25,3 +25,25 @@ Great thanks goes to to [Eric Wastl](https://twitter.com/ericwastl) for Puzzles!
     def __radd__(self, other):
         return other + self.score
 ```
+
+#### Day 3
+**`HIHGLIGHT`** With the second day in three days dealing with an inventory of elves, we are heading into RPG territory.
+```python
+class Elf():
+    """Class for keeping track of elf and it's in inventory."""
+```
+
+**`LESSON`** To group content of a list (or other iterable) using itertools:
+```python
+def group_list(n, iterable:list) -> list:
+    """Group iterable to list of tuples of size n."""
+    args = [iter(iterable)] * n
+    return list(zip_longest(*args))
+```
+
+**`LESSON`** To find intersection of multiple lists very fast:
+```python
+def find_intersection(list_of_lists:list) -> list:
+    """Find the intersection of all lists in list_of_lists."""
+    return list(set.intersection(*[set(list) for list in list_of_lists]))
+```
