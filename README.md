@@ -44,6 +44,6 @@ def group_list(n, iterable:list) -> list:
 **`LESSON`** To find intersection of multiple lists very fast:
 ```python
 def find_intersection(list_of_lists:list) -> list:
-    """Group iterable to list of tuples of size n."""
+    """Find the intersection of all lists in list_of_lists."""
     return list(set.intersection(*[set(list) for list in list_of_lists]))
 ```
