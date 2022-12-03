@@ -53,7 +53,7 @@ class RPSGame():
         Returns:
             str: Formatted str message of RPSGame class.
         """
-        emoji = ["✊", "✋", "✌️"]
+        emoji = ["✊", "✋", "✌️ "]
         return f"🧝 plays {emoji[self.elf_move-1]}, 👱 play {emoji[self.player_move-1]}! Game score is {self.score}."
 
     def __radd__(self, other):
