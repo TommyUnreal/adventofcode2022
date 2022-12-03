@@ -6,12 +6,20 @@ class RPSGame():
     """Class represents Rock Paper Scissors game."""
 
     def __init__(self, score = 0) -> None:
+        """Initialize with no moves and optional score.
+
+        Args:
+            score (int): Optional. Set the score in new RPSGame object.
+        """
         self.elf_move = 0
         self.player_move = 0
         self.score = score
 
     def set_game(self, strategy: list) -> None:
         """Set game of Rock Paper Scissors based on line in input file.
+
+        Elf: A for Rock, B for Paper, and C for Scissors.
+        Player: X for Lose, Y for Draw, and Z for Win.
 
         Args:
             strategy (list): List with two single letter string elements representing player and elf move.
@@ -40,10 +48,23 @@ class RPSGame():
         print(self)
 
     def __str__(self) -> str:
+        """Return formatted str message of RPSGame class.
+
+        Returns:
+            str: Formatted str message of RPSGame class.
+        """
         emoji = ["✊", "✋", "✌️"]
         return f"🧝 plays {emoji[self.elf_move-1]}, 👱 play {emoji[self.player_move-1]}! Game score is {self.score}."
 
     def __radd__(self, other):
+        """Override summing of RPSGame object to sum scores.
+
+        Args:
+            other (_type_): RPSGame object to be added to the sum.
+
+        Returns:
+            _type_: Summed RPSGame object.
+        """
         return other + self.score
 
 list_of_games = []
