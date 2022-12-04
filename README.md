@@ -49,3 +49,33 @@ def find_intersection(list_of_lists:list) -> list:
     """Find the intersection of all lists in list_of_lists."""
     return list(set.intersection(*[set(list) for list in list_of_lists]))
 ```
+
+#### Day 4
+**`HIHGLIGHT`** Writing (as much as I can) maintainable code takes me about 3x more time. Usually, it pays back a little in the second puzzle. This time adding one extra method did it. And I used the lesson from yesterday, yay!
+```
+    def sections_intersect(self) -> bool:
+        """Compute if range of sections in pair responsibility intersect the other.
+
+        Returns:
+            bool: True if ranges intersect, False otherwise.
+        """
+        return bool(find_intersection([
+            range(self.elf_1_sections[0], self.elf_1_sections[1]+1), 
+            range(self.elf_2_sections[0], self.elf_2_sections[1]+1)
+            ]))
+```
+
+**`LESSON`** *Readability counts.* This is the 7th line of [Zen of Python](https://peps.python.org/pep-0020/). The older I'm the more I understand this 🤣. That's why I decided to document the code well this year.
+```python
+    def __init__(self, pair: str) -> None:
+        """Transform line output and save to elf_1_sections elf_2_sections attributes.
+
+        Section interval in "pair" input are separated with "-", elves with ",".
+
+        Args:
+            pair (str): Input line in format "2-4,6-8".
+        """
+        pair = pair.split(",")
+        self.elf_1_sections = [int(section) for section in pair[0].split("-")]
+        self.elf_2_sections = [int(section) for section in pair[1].split("-")]
+```
