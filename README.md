@@ -120,3 +120,27 @@ list_of_numbers_from_str = [int(n) for n in re.findall(r'\d+',line)]
 if len(list) == len(set(list)):
     print("Objects do not repeat!")
 ```
+
+#### Day 7
+**`HIHGLIGHT`** Recursion in action! It can create such a elegant solutions. Like this structured output in 6 lines of code!
+```python
+\ 48381165
+ -b.txt 14848514
+ -c.dat 8504156
+ a 94853
+  -f 29116
+  -g 2557
+  -h.lst 62596
+  e 584
+   -i 584
+...
+```
+```python
+print(f"{indentation}{self.name} {self.get_size()}")
+indentation += " "
+for f in self.files:
+    f.print_file(indentation)
+for d in self.dirs:
+    d.print_disc(indentation)
+```
+**`LESSON`** If you get a change request, issue, puzzle, or any task really... **Read the specification carefully!** You will then not spend 15 minutes answering a question nobody asked.
