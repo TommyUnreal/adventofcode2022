@@ -79,3 +79,44 @@ def __init__(self, pair: str) -> None:
     self.elf_1_sections = [int(section) for section in pair[0].split("-")]
     self.elf_2_sections = [int(section) for section in pair[1].split("-")]
 ```
+
+#### Day 5
+**`HIHGLIGHT`** I really liked the twist, that in the second puzzle the crane could lift multiple crates. But here writing an object-oriented solution was maybe elegant, but took me over 40 minutes to write for both parts together!
+
+**`LESSON`** To define the default empty list in the data class you have to actually import `field` from `dataclasses` like this:
+```python
+from dataclasses import dataclass, field
+
+@dataclass
+class Stack():
+    content: list = field(default_factory=list)
+```
+
+**`LESSON`** To parse all numbers in str into a list of integers, you can do a simple oneliner:
+```python
+import re
+
+list_of_numbers_from_str = [int(n) for n in re.findall(r'\d+',line)]
+```
+
+**`LESSON`** If time is an issue, it might be faster to edit the input manually. I reminded myself of the 8th line of [Zen of Python](https://peps.python.org/pep-0020/) this time: Special cases aren't special enough to break the rules. Parsing it and writing methods to load the state of it into objects saved me 10-15 minutes. I wrote those later on Day 6.
+```
+[C]         [S] [H]                
+[F] [B]     [C] [S]     [W]        
+[B] [W]     [W] [M] [S] [B]        
+[L] [H] [G] [L] [P] [F] [Q]        
+[D] [P] [J] [F] [T] [G] [M] [T]    
+[P] [G] [B] [N] [L] [W] [P] [W] [R]
+[Z] [V] [W] [J] [J] [C] [T] [S] [C]
+[S] [N] [F] [G] [W] [B] [H] [F] [N]
+ 1   2   3   4   5   6   7   8   9 
+```
+
+#### Day 6
+**`HIHGLIGHT`** So far easiest puzzle to program. No objects this time!
+
+**`LESSON`** Oneliner to check if objects in an iterable do not repeat:
+```python
+if len(list) == len(set(list)):
+    print("Objects do not repeat!")
+```
