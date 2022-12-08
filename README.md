@@ -144,3 +144,32 @@ for d in self.dirs:
     d.print_disc(indentation)
 ```
 **`LESSON`** If you get a change request, issue, puzzle, or any task really... **Read the specification carefully!** You will then not spend 15 minutes answering a question nobody asked.
+
+
+#### Day 8
+**`HIHGLIGHT`** It was great to refresh numpy. I believe this wasn't the last time in this year's AoC, just a sneak peek for the things to come.
+
+**`LESSON`** You dont need complicate your life when thinking about indexes, if you need to make operations in up/down/left/right directions. NUpy is here to save you. Just prepare your algortihm for one side, than use:
+```python
+import numpy as np
+
+2d_array = np.array(2d_list)
+
+do_your_code(2d_array)            # original direction
+do_your_code(np.flip(2d_array))   # opposite direction same axis
+do_your_code(2d_array.T)          # original direction 2nd axis
+do_your_code(np.flip(2d_array.T)) # opposite direction 2nd axis
+```
+
+**`LESSON`** Apparently for cycle have else case, which is executed, when the cycle finished without interrupts (f.e.  `break`). This is awrsome when you need it. How come I have never heard about it?
+```python
+for index in range(5):
+    if index > 3: break
+else:
+    print("This is not executed.")
+
+for index in range(5):
+    if index > 10: break
+else:
+    print("This is executed.")
+```
