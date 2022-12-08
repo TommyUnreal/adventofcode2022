@@ -149,7 +149,7 @@ for d in self.dirs:
 #### Day 8
 **`HIHGLIGHT`** It was great to refresh numpy. I believe this wasn't the last time in this year's AoC, just a sneak peek for the things to come.
 
-**`LESSON`** You dont need complicate your life when thinking about indexes, if you need to make operations in up/down/left/right directions. NUpy is here to save you. Just prepare your algortihm for one side, than use:
+**`LESSON`** You dont need complicate your life when thinking about indexes, if you need to make operations in up 🢁, down 🢃, left 🢀, right 🢂 directions. Numpy is here to save you. Just prepare your algortihm for one side, than use:
 ```python
 import numpy as np
 
@@ -161,7 +161,7 @@ do_your_code(2d_array.T)          # original direction 2nd axis
 do_your_code(np.flip(2d_array.T)) # opposite direction 2nd axis
 ```
 
-**`LESSON`** Apparently for cycle have an else case, which is executed, when the cycle finished without interrupts (f.e.  `break`). This is awesome when you need it. How come I have never heard about it?
+**`LESSON`** Apparently for cycle have an else case, which is executed, when the cycle finished without interrupts (f.e.  `break`). This is awesome when you need it. How come I have never heard about it 😲?
 ```python
 for index in range(5):
     if index > 3: break
