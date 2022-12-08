@@ -161,7 +161,7 @@ do_your_code(2d_array.T)          # original direction 2nd axis
 do_your_code(np.flip(2d_array.T)) # opposite direction 2nd axis
 ```
 
-**`LESSON`** Apparently for cycle have else case, which is executed, when the cycle finished without interrupts (f.e.  `break`). This is awrsome when you need it. How come I have never heard about it?
+**`LESSON`** Apparently for cycle have an else case, which is executed, when the cycle finished without interrupts (f.e.  `break`). This is awesome when you need it. How come I have never heard about it?
 ```python
 for index in range(5):
     if index > 3: break
