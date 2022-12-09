@@ -173,3 +173,25 @@ for index in range(5):
 else:
     print("This is executed.")
 ```
+
+#### Day 9
+**`HIHGLIGHT`** I didn't really like the idea to create a 2D matrix to store the current state and what coordinates were already visited by the tail of the rope. Being able to solve this analytically with math formulas made solving the puzzle more exciting for me. Even if the solution is not particularly pretty.
+
+**`LESSON`** No big lessons here. But dataclasses are awsome ([and fast!](https://medium.com/@jacktator/dataclass-vs-namedtuple-vs-object-for-performance-optimization-in-python-691e234253b9)):
+```python
+from dataclasses import dataclass
+
+@dataclass
+class Coordinates():
+    """Dataclass to hold information about x and y position."""
+    x: int = 0
+    y: int = 0
+
+print(Coordinates().x)
+print(Coordinates(5,1).y)
+```
+
+```text
+>>> 0
+>>> 1
+```
