@@ -1,8 +1,42 @@
 import os
 import sys
 import numpy as np
+import matplotlib.pyplot as plt
 
 __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
+
+def plot_voxels(voxels, voxels_to_highlight):
+    """
+    Plot a 3D numpy array as a voxel shape.
+
+    1s representing the voxels of the object and 0s representing the empty space.
+
+    Args:
+        voxels (numpy.ndarray): 3D numpy array 
+        voxels_to_highlight(numpy.ndarray): 3D numpy array with new color
+    """
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='3d')
+
+    # Plot the voxels
+    blue_coordinates = []
+    for i in range(voxels.shape[0]):
+        for j in range(voxels.shape[1]):
+            for k in range(voxels.shape[2]):
+                if voxels[i, j, k] == 1:
+                    blue_coordinates.append([i, j, k])
+    ax.scatter(*zip(*blue_coordinates), marker='s', s=50, color='#0000FF20')
+
+    # Plot the voxels to highlight in red
+    red_coordinates = []
+    for i in range(voxels_to_highlight.shape[0]):
+        for j in range(voxels_to_highlight.shape[1]):
+            for k in range(voxels_to_highlight.shape[2]):
+                if voxels_to_highlight[i, j, k] == 1:
+                    red_coordinates.append([i, j, k])
+    ax.scatter(*zip(*red_coordinates), marker='s', s=50, color='#FF000050')
+
+    plt.show()
 
 def store_voxels(lines:list[str])->np.ndarray:
     """Store voxels in a 3D numpy array.
@@ -93,7 +127,6 @@ def find_cavities(voxels):
 
 def fill_cavities_recursive(voxels, i, j, k):
     """Subtract 1 from the current voxel and all connected elements that equal to 1."""
-    print(i, j, k)
     stack = [(i, j, k)]
     while stack:
         i, j, k = stack.pop()
@@ -119,11 +152,13 @@ if __name__ == "__main__":
         lines = [line for line in (l.strip() for l in file)]
         
         voxels = store_voxels(lines)
-        
+
     np.set_printoptions(threshold=np.inf)
     # 2482 is too low
     # 2904 is too high
-    print("Voxels:\n\n", voxels)
+
     cavities = find_cavities(voxels)
-    print("Cavities:\n\n", cavities)
+
+    plot_voxels(voxels, cavities)
+
     print(calculate_surface_area(voxels + cavities))
